@@ -1,5 +1,5 @@
 import React from "react"
-import MenuList from "./menu-list/menu-list.component"
+import MenuList from "../../components/menu-list/menu-list.component"
 import './hompage.style.scss'
 
 
