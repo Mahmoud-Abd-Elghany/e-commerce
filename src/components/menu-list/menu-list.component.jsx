@@ -37,12 +37,8 @@ const MenuList = () => {
     const [itemElements, setTitleArray] = useState(Elements);
     return(
         <div className='menu-list'>
-            {itemElements.map(element => <MenuItem 
-                                            title = {element.title.toUpperCase()}
-                                            image = {element.imageURL} 
-                                            size = {element.size}
-                                            key = {element.id}
-                                            />)}
+            {itemElements.map(({id, ...otherElementProps}) => 
+                <MenuItem key={id} {...otherElementProps} /> )}
         </div>
     )
 }
