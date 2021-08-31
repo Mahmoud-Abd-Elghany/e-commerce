@@ -15,23 +15,30 @@
     .header-text{
         padding: 20px 20px;
         background-color: rgb(255, 255, 255);
+        border-radius: 30px;
         margin: 0 7px;
         text-decoration: none;
         color: black;
+        cursor: pointer;
+        text-transform: uppercase;
         &:hover{
             background-color: rgb(238, 238, 238);
-            transition: ease-out 0.3s;
+            border-radius: 0px;
+            transition: ease-out 0.2s;
         }
         
     }
   }
   .logo-container {
-    height: 50%;
-    width: 60px;
-    padding: 13px;
-    margin: 15px 70px;
+    position: relative;
+    top: 15%;
+    height: 90px;
+    width: 90px;
+    min-width: 90px;
+    padding: 10px 12px;
+    margin: 0px 70px;
     background-color: rgb(252, 252, 252);
-    border-radius: 40px;
+    border-radius: 50px;
     &:hover{
         background-color: rgb(245, 245, 245);
         transition: ease-in 0.2s;
