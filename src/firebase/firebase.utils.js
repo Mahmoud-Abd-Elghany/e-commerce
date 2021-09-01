@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app"
-import { getFirestore } from "firebase/firestore"; //for Database
+import { getFirestore, collection, getDoc, doc, setDoc } from "firebase/firestore"; //for Database
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";  //for Authentication
 
 const Config = {
@@ -11,11 +11,35 @@ const Config = {
     appId: "1:399225721922:web:dedb3a3c16ebe8962b89db",
     measurementId: "G-WMNYYWDKVD"
 };
-
 initializeApp(Config);
-
 export const auth = getAuth();
-export const firestore = getFirestore();
+export const db = getFirestore();
+
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+    if(!userAuth) return;
+    const userRef = doc(db, `users/${userAuth.uid}`);
+    const snapShot = await getDoc(userRef);
+    console.log(userAuth);
+    if(!snapShot.exists()){
+        const {displayName, email} = userAuth;
+        const createdAt = new Date();
+        try {
+            setDoc(userRef, {
+                displayName,
+                email,
+                createdAt,
+                ...additionalData
+            })
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+        
+}
+
 
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({

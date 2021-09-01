@@ -6,15 +6,15 @@ import ShopPage from './pages/shop/shop.component';
 import Header from './components/header/header.component';
 import SignInPage from './pages/signin/signin.component'
 import {onAuthStateChanged} from 'firebase/auth'
-import {auth} from './firebase/firebase.utils'
+import {auth, createUserProfileDocument} from './firebase/firebase.utils'
 
 function App(props) {
   const [state, setState] = useState({currentUser: null});
-  const unsubscribe = null;
+
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      setState({currentUser: user})
-      console.log(user);
+    onAuthStateChanged(auth, async (user) => {
+      //setState({currentUser: user})
+      createUserProfileDocument(user);
     });
   },[]);
 
