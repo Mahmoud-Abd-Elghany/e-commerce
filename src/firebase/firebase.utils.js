@@ -20,8 +20,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     if(!userAuth) return;
     const userRef = doc(db, `users/${userAuth.uid}`);
     const snapShot = await getDoc(userRef);
-    console.log(userAuth);
-    if(!snapShot.exists()){
+    if(!snapShot.exists()){ //Checking Duplicate before Creating new User
         const {displayName, email} = userAuth;
         const createdAt = new Date();
         try {
@@ -36,8 +35,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
             console.log(err)
         }
     }
-
-        
+    return userRef;
 }
 
 

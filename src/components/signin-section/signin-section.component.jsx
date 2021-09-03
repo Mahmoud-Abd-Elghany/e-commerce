@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 import './signin-section.style.scss'
-import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth, signInWithGoogle} from '../../firebase/firebase.utils';
+import {signInWithEmailAndPassword} from 'firebase/auth'
 
 const SignIn = () => {
     const [signInCredentials, setSignInCredentials] = useState({
@@ -14,19 +15,27 @@ const SignIn = () => {
         setSignInCredentials({...signInCredentials, [e.target.name]: e.target.value});
     }
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
-        setSignInCredentials({
-            email: '',
-            password: ''
-        });
+        const { email, password } = signInCredentials;
+        try{
+            await signInWithEmailAndPassword (auth, email, password).then(user =>console.log(user));
+            setSignInCredentials({
+                email: '',
+                password: ''
+            });
+        }
+        catch(err){
+            console.log(err);
+        }
+
     }
     return (
         <div className = 'signin'>
             <h3>Already have an Account?</h3>
             <h2>Sign In</h2>
 
-            <form onSubmit={() => submitHandler}>
+            <form onSubmit={submitHandler}>
                 <FormInput  name='email' 
                         label = 'Email:'
                         type='email' 
