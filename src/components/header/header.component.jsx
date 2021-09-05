@@ -2,11 +2,14 @@ import React from 'react'
 import { connect, useSelector } from 'react-redux'
 import './header.style.scss'
 import {ReactComponent as Logo} from './logo/balcony.svg'
+import CartIcon from '../cart/cart.component'
+import CartDropdown from '../cart-dropdown/cart-dropdown.component'
 import { Link } from 'react-router-dom'
 import { auth } from '../../firebase/firebase.utils'
 
 const Header = () => {
     const currentUser = useSelector((state) => state.user.currentUser);
+    const cartHidden = useSelector(state => state.cart.hidden);
     console.log("currentUser:", currentUser);
     return (
         <div className='header'>
@@ -25,12 +28,20 @@ const Header = () => {
                         <div className='header-text' onClick={() => auth.signOut()}>
                             sign out
                         </div>
+                        <CartIcon/>
                     </div>
                     :
                     <Link to='/signin' className='header-text'>SIGN IN</Link>
                 }
                 
             </div>
+            {
+                cartHidden? 
+                     null
+                    : 
+                    <CartDropdown/>
+            }
+            
         </div>
     )
 }

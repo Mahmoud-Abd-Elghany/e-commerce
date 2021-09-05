@@ -4,14 +4,15 @@
   height: 120px;
   width: 100%;
   justify-content: space-between;
-  margin: 10px 0px 3px 0px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   .header-text-container {
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 60px;
+    margin-right: 10px;
     .signedIn-container {
       display: flex;
       flex-direction: row;
@@ -25,16 +26,17 @@
       color: black;
       cursor: pointer;
       text-transform: uppercase;
+      font-size: 18px;
       &:hover {
         background-color: rgb(238, 238, 238);
         border-radius: 0px;
+        font-weight: bolder;
         transition: ease-out 0.2s;
       }
     }
     .user {
       color: rgb(0, 131, 218);
       text-transform: none;
-      font-size: 17px;
       margin: 0px 0px;
     }
   }
@@ -45,7 +47,6 @@
     width: 90px;
     min-width: 90px;
     padding: 10px 12px;
-    margin: 0px 70px;
     background-color: rgb(252, 252, 252);
     border-radius: 50px;
     &:hover {
