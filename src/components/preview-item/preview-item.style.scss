@@ -1,11 +1,12 @@
 .preview-item {
-  width: 23%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   height: 440px;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 
   .image {
     width: 90%;
@@ -13,6 +14,18 @@
     background-size: cover;
     background-position: center;
     margin-bottom: 6px;
+  }
+
+  .button{
+    width: 70%;
+    position: absolute;
+    top: 73%;
+    right: 15%;
+    opacity: 0.7;
+    display: none;
+    &:hover{
+      opacity: 1;
+    }
   }
 
   .image-footer {
@@ -30,6 +43,16 @@
     .price {
       width: auto;
       margin-left: auto;
+    }
+  }
+  &:hover{
+    .image{
+      opacity: 0.85;
+    }
+
+    .button{
+      display: block;
+      opacity: 0.85;
     }
   }
 }

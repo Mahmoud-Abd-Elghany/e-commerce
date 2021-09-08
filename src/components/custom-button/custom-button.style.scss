@@ -15,6 +15,7 @@ $google-color: #4285F4;
     padding: 0px;
     font-family: inherit;
     letter-spacing: 0.5px;
+    text-align: center;
     &:hover{
         transition: ease-in 0.05s;
         background-color: white;
@@ -33,5 +34,15 @@ $google-color: #4285F4;
         transition: ease-in 0.05s;
         color: $google-color;
         border: 2px solid $google-color;
+    }
+}
+.inverted{
+    background-color: white;
+    color: black;
+    border: none;
+    &:hover{
+        background-color: black;
+        color: white;
+        border: none
     }
 }

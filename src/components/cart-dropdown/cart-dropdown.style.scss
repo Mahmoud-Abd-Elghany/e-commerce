@@ -15,7 +15,7 @@
     .cart-items{
         display: flex;
         flex-direction: column;
-        overflow: hidden;
+        overflow: scroll;
         height: 400px;
         width: auto;
     }

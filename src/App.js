@@ -37,7 +37,6 @@ function App(props) {
     });
   },[]);
 
-  console.log("auth:", auth);
   return (
     <div className="App">
       <Header/>
