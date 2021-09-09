@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import {toggleCart}  from '../../redux/cart/cart.actions'
 import {ReactComponent as Cart} from "./shopping-bag.svg"
-import './cart.style.scss'
+import './cart-icon.style.scss'
 
 
 const CartIcon = () => {
