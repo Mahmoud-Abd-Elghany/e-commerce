@@ -1,4 +1,4 @@
-import { checkingDuplicateItem } from "./cart.utils"
+import { checkingDuplicateItem, removeItem } from "./cart.utils"
 const INITIAL_STATE = {
     hidden:true,
     cartItems: []
@@ -14,6 +14,11 @@ const cartReducer = (state = INITIAL_STATE, action) =>{
             return {
                 ...state,
                 cartItems: checkingDuplicateItem(state.cartItems, action.payload)
+            }
+        case 'REMOVE_ITEM':
+            return {
+                ...state,
+                cartItems: removeItem(state.cartItems, action.payload)
             }
         default:
             return state;

@@ -12,3 +12,15 @@ export const checkingDuplicateItem = (cartItems, newCartItem) => {
     }
     return [...cartItems, {...newCartItem, quantity: 1}]
 }
+
+export const removeItem = (cartItems, itemID) => {
+    const newCartItems = cartItems.map((item) => {
+        if(item.id !== itemID) {return item;}
+        return{
+            ...item,
+            quantity: item.quantity -1
+        }
+    })
+    const filteredCartItems = newCartItems.filter(item => item.quantity > 0);
+    return filteredCartItems
+}

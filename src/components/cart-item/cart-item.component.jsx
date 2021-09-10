@@ -1,10 +1,12 @@
 import React from 'react'
 import "./cart-item.style.scss"
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { removeItem } from '../../redux/cart/cart.actions'
 import {ReactComponent as RemoveIcon} from "./remove.svg"
 
-const CartItem = ({item: {name, price, imageUrl, quantity}}) => {
-    const cartItems = useSelector(state => state.cart.cartItems);
+const CartItem = ({item: {name, price, imageUrl, quantity, id}}) => {
+    const dispatch = useDispatch();
+    const dispatchRemoveItem = () => dispatch(removeItem(id));
     return (
         <div className="cart-item-container">
             <img className="img" alt="" src={imageUrl}/>
@@ -12,8 +14,7 @@ const CartItem = ({item: {name, price, imageUrl, quantity}}) => {
                 <div className="name">{name}</div>
                 <div className="price">{quantity} X ${price}</div>
             </div>
-            <RemoveIcon className="remove-icon"/>
-
+            <RemoveIcon className="remove-icon" onClick={dispatchRemoveItem}/>
         </div>
     )
 }

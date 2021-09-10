@@ -14,7 +14,6 @@ const CartDropdown = () => {
             }
             </div>
             <CustomButton className='button'>Go to checkout</CustomButton>
-
         </div>
     )
 }
