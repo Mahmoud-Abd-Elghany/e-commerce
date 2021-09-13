@@ -1,6 +1,6 @@
 import React from 'react'
 import "./cart-item.style.scss"
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { removeItem } from '../../redux/cart/cart.actions'
 import {ReactComponent as RemoveIcon} from "./remove.svg"
 

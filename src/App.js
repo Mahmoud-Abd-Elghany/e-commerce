@@ -10,10 +10,14 @@ import SignInPage from './pages/signin/signin.component'
 import {onAuthStateChanged} from 'firebase/auth'
 import {auth, createUserProfileDocument} from './firebase/firebase.utils'
 import { doc, onSnapshot } from "firebase/firestore";
+import { currentUserSelector } from './redux/user/user.selector';
+import { cartItemsSelector } from './redux/cart/cart.selector';
+import CheckoutPage from './pages/checkout/checkout.component';
 
 function App(props) {
   const dispatch = useDispatch();
-  const currentUser = useSelector(state => state.user.currentUser);
+  const currentUser = useSelector(state => currentUserSelector(state));
+  const cartItems = useSelector(state => cartItemsSelector(state));
   const setCurrentUser = user => dispatch(setCurrentUserAction(user));
 
   useEffect(() => {
@@ -44,6 +48,7 @@ function App(props) {
         <Route exact path='/' component={HomePage}/>
         <Route exact path='/shop' component={ShopPage}/>
         <Route path='/signin' render = {() => currentUser? <Redirect to="/"/> : (<SignInPage/>)}/>
+        <Route exact path='/checkout' component = {CheckoutPage}/>
       </Switch>
     </div>
   );
