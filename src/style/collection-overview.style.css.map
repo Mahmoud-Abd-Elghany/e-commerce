@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "../components/collection-overview/collection-overview.style.scss"
-    ],
-    "names": [],
-    "file": "collection-overview.style.css"
-}
