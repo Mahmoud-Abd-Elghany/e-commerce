@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAA;EACH,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;CAIf;;AARD,AAKI,OALG,CAKH,OAAO,CAAA;EACH,KAAK,EAAE,GAAG;CACb",
+    "sources": [
+        "../components/signup-section/signup-section.style.scss"
+    ],
+    "names": [],
+    "file": "signup-section.style.css"
+}

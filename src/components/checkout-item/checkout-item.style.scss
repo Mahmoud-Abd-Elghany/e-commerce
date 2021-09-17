@@ -12,13 +12,24 @@
         padding-left: 10px;
         img{
             width: 100%;
+            border: 1px solid rgba(134, 134, 134, 0.3);
         }
         span{
-            font-size: 17px;
+            font-size: 18px;
         }
         .remove-icon{
             cursor: pointer;
             transform: scale(0.8);
+        }
+    }
+    .quantity-section{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 20px;
+        p{
+            margin: 0px 6px;
+            cursor: pointer;
         }
     }
 }

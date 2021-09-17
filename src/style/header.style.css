@@ -1,0 +1,100 @@
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 120px;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.header .header-text-container {
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+}
+
+.header .header-text-container .signedIn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.header .header-text-container .header-text {
+  padding: 20px 20px;
+  background-color: white;
+  border-radius: 30px;
+  margin: 0 7px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.header .header-text-container .header-text:hover {
+  background-color: #eeeeee;
+  border-radius: 0px;
+  font-weight: bolder;
+  -webkit-transition: ease-out 0.2s;
+  transition: ease-out 0.2s;
+}
+
+.header .header-text-container .user {
+  color: #0083da;
+  text-transform: none;
+  margin: 0px 0px;
+}
+
+.header .logo-container {
+  position: relative;
+  top: 15%;
+  height: 90px;
+  width: 90px;
+  min-width: 90px;
+  padding: 10px 12px;
+  background-color: #fcfcfc;
+  border-radius: 50px;
+}
+
+.header .logo-container:hover {
+  background-color: whitesmoke;
+  -webkit-transition: ease-in 0.2s;
+  transition: ease-in 0.2s;
+  border-radius: 0px;
+}
+
+.header .logo-container .logo {
+  height: 70px;
+  width: 70px;
+}
+
+.header .logo-container .logo:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: -webkit-transform 2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  transition: -webkit-transform 2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  transition: transform 2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  transition: transform 2s cubic-bezier(0.25, 0.45, 0.45, 0.95), -webkit-transform 2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+/*# sourceMappingURL=header.style.css.map */

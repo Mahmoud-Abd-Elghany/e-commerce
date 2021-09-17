@@ -1,4 +1,4 @@
-export const ELEMENTS = [
+const INITIAL_STATE = [
     {
         title: 'Hats',
         imageURL: 'https://images.unsplash.com/photo-1465931577419-3e7f810dc552?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
@@ -27,3 +27,12 @@ export const ELEMENTS = [
         id: 5,
     }
 ];
+
+const menuListReducer = (state = INITIAL_STATE, action) => {
+    switch(action.type){
+        default:
+            return state;
+    }
+}
+
+export default menuListReducer

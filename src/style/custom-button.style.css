@@ -1,0 +1,52 @@
+.button {
+  min-width: 165px;
+  width: auto;
+  height: 55px;
+  background-color: black;
+  border: 2px solid black;
+  color: white;
+  font-size: 15px;
+  font-weight: bolder;
+  cursor: pointer;
+  font-size: bolder;
+  text-transform: uppercase;
+  padding: 0px;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.button:hover {
+  -webkit-transition: ease-in 0.05s;
+  transition: ease-in 0.05s;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.google-button {
+  color: white;
+  background-color: #4285F4;
+  border: 2px solid #4285F4;
+  padding: 0px 15px;
+}
+
+.google-button:hover {
+  -webkit-transition: ease-in 0.05s;
+  transition: ease-in 0.05s;
+  color: #4285F4;
+  border: 2px solid #4285F4;
+}
+
+.inverted {
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.inverted:hover {
+  background-color: black;
+  color: white;
+  border: none;
+}
+/*# sourceMappingURL=custom-button.style.css.map */

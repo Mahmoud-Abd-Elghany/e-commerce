@@ -11,3 +11,13 @@ export const removeItem = (itemID) => ({
     type: 'REMOVE_ITEM',
     payload: itemID
 })
+
+export const incQuantity = (itemID) => ({
+    type: 'INCREASE_QUANTITY',
+    payload: itemID
+})
+
+export const decQuantity = (itemID) => ({
+    type: 'DECREASE_QUANTITY',
+    payload: itemID
+})
