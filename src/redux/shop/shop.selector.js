@@ -2,8 +2,8 @@ import {createSelector} from 'reselect'
 
 
 export const shopSelector = createSelector(
-    [state => state],
-    state => state.shop
+    [state => state.shop],
+    shop => shop.shopData
 )
 
 export const objToArrCollectionSelector = createSelector(

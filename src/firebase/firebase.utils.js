@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app"
-import { getFirestore, collection, getDoc, doc, setDoc, writeBatch } from "firebase/firestore"; //for Database
+import { getFirestore, collection, getDoc, getDocs, doc, setDoc, writeBatch } from "firebase/firestore"; //for Database
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";  //for Authentication
 
 const Config = {
@@ -42,7 +42,7 @@ export const addingCollectionAndDocuments = async (collectionKey, dataArray) => 
  const collectionRef = collection(db, collectionKey);
  const batch = writeBatch(db); // batching all set operations
  dataArray.forEach( obj => {
-     batch.set(doc(collectionRef, `${obj.title}`),{
+     batch.set(doc(collectionRef),{
          title: obj.title,
          items: obj.items,
     })
@@ -50,6 +50,22 @@ export const addingCollectionAndDocuments = async (collectionKey, dataArray) => 
  return await batch.commit()
 }
 
+export const convertDocsArrToObj = async (snapShot) => {
+    const transformedArr = [];
+    snapShot.forEach((obj, index) => {
+        const {title, items} = obj.data();
+        transformedArr.push({
+            title,
+            items,
+            id: obj.id,
+            routeUrl: `${title.toLowerCase()}`
+        })
+    })
+    return transformedArr.reduce((accu, obj) => {
+        accu[obj.title.toLowerCase()] = obj;
+        return accu
+    },{}); //Changing Array to Object (Data Normalization)
+}
 
 const provider = new GoogleAuthProvider();
 provider.setCustomParameters({

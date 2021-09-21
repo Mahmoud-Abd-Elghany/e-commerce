@@ -5,7 +5,6 @@ import {objToArrCollectionSelector} from '../../redux/shop/shop.selector';
 
 const CollectionsOverview= () => {
     const shopData = useSelector(state => objToArrCollectionSelector(state));
-    console.log(shopData);
     return (
         <div>
             {shopData.map(({id, ...otherItems}) => (<CollectionPreview key={id} {...otherItems}/>))}
