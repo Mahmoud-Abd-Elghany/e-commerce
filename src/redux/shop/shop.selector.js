@@ -8,13 +8,13 @@ export const shopSelector = createSelector(
 
 export const objToArrCollectionSelector = createSelector(
     [shopSelector],
-    shopData => Object.keys(shopData).map(key => shopData[key])
+    shopData => shopData? Object.keys(shopData).map(key => shopData[key]) : []
 )
 
 export const collectionSelector = urlParam => (
     createSelector(
         [shopSelector],
-        shopData => shopData[urlParam]
+        shopData => shopData? shopData[urlParam] : null
     )
 )
 
