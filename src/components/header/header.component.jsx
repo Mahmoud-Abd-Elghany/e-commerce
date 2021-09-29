@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import './header.style.scss'
 import {ReactComponent as Logo} from './logo/balcony.svg'
 import CartIcon from '../cart-icon/cart-icon.component'

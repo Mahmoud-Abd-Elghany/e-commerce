@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app"
-import { getFirestore, collection, getDoc, getDocs, doc, setDoc, writeBatch } from "firebase/firestore"; //for Database
+import { getFirestore, getDoc, doc, setDoc } from "firebase/firestore"; //for Database
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";  //for Authentication
 
 const Config = {
@@ -38,17 +38,18 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 }
 
-export const addingCollectionAndDocuments = async (collectionKey, dataArray) => {
- const collectionRef = collection(db, collectionKey);
- const batch = writeBatch(db); // batching all set operations
- dataArray.forEach( obj => {
-     batch.set(doc(collectionRef),{
-         title: obj.title,
-         items: obj.items,
-    })
- })
- return await batch.commit()
-}
+// export const addingCollectionAndDocuments = async (collectionKey, dataArray) => {
+//  const collectionRef = collection(db, collectionKey);
+//  const batch = writeBatch(db); // batching all set operations
+//  dataArray.forEach( obj => {
+//      batch.set(doc(collectionRef),{
+//          title: obj.title,
+//          items: obj.items,
+//     })
+//  })
+//  return await batch.commit()
+// } // Changing Shop Data from Obj to Array to Add to Firestore
+// Already Added Data to Firestore
 
 export const convertDocsArrToObj = async (snapShot) => {
     const transformedArr = [];

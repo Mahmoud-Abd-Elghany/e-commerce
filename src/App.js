@@ -12,13 +12,10 @@ import {auth, createUserProfileDocument} from './firebase/firebase.utils'
 import {onSnapshot } from "firebase/firestore";
 import { currentUserSelector } from './redux/user/user.selector';
 import CheckoutPage from './pages/checkout/checkout.component';
-import { addingCollectionAndDocuments } from './firebase/firebase.utils'
-import { objToArrCollectionSelector } from './redux/shop/shop.selector';
 
 function App(props) {
   const dispatch = useDispatch();
   const currentUser = useSelector(state => currentUserSelector(state));
-  const dataArray = useSelector(state => objToArrCollectionSelector(state));
   const setCurrentUser = user => dispatch(setCurrentUserAction(user));
 
   useEffect(() => {
@@ -39,7 +36,7 @@ function App(props) {
         setCurrentUser(userAuth);
       } //Signing out the User
     });
-    //addingCollectionAndDocuments('Shop Data',dataArray) // already added collection
+    // addingCollectionAndDocuments('Shop Data',dataArray) // already added collection
   },[]);
 
   return (

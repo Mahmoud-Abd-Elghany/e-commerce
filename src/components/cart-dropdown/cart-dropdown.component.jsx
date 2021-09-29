@@ -3,7 +3,7 @@ import './cart-dropdown.style.scss'
 import { useSelector, useDispatch } from 'react-redux'
 import CustomButton from '../custom-button/custom-button.component'
 import CartItem from '../cart-item/cart-item.component'
-import { cartItemsSelector, cartHiddenSelector } from '../../redux/cart/cart.selector'
+import { cartItemsSelector } from '../../redux/cart/cart.selector'
 import { Link } from 'react-router-dom'
 import { toggleCart } from '../../redux/cart/cart.actions'
 
