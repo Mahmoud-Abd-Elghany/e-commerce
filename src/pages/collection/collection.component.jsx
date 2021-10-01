@@ -10,7 +10,7 @@ const CollectionPage = ({match}) => {
 
     return (
         <div className="container">
-            <h1 className="title"> {collection.title}</h1>
+            <h1 className="title">{collection.title.toUpperCase()}</h1>
             <div className="items-container">
             {
                 collection.items.map( item => <PreviewItem className="item" key={item.id} item={item}/>)
