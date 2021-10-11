@@ -1,3 +1,4 @@
+import React from 'react'
 import CollectionPage from "./collection.component";
 import { isDataLoadedSelector } from "../../redux/shop/shop.selector";
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
