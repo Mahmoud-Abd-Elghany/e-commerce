@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
+import { useDispatch } from 'react-redux';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 import './signin-section.style.scss'
-import { auth, signInWithGoogle} from '../../firebase/firebase.utils';
-import {signInWithEmailAndPassword} from 'firebase/auth'
+import { googleSignInStart, emailSignInStart } from '../../redux/user/user.actions';
+
 
 const SignIn = () => {
     const [signInCredentials, setSignInCredentials] = useState({
@@ -11,15 +12,16 @@ const SignIn = () => {
         password: ''
     });
 
+    const dispatch = useDispatch();
     const onChangehandler = (e) => {
         setSignInCredentials({...signInCredentials, [e.target.name]: e.target.value});
     }
 
-    const submitHandler = async (e) => {
+    const submitHandler = (e) => {
         e.preventDefault();
         const { email, password } = signInCredentials;
         try{
-            await signInWithEmailAndPassword (auth, email, password).then(user =>console.log(user));
+            dispatch(emailSignInStart({email, password}));
             setSignInCredentials({
                 email: '',
                 password: ''
@@ -54,7 +56,7 @@ const SignIn = () => {
                         <CustomButton name='Sign In' value='Submit Form' type='submit'>
                             Sign In
                         </CustomButton>
-                        <CustomButton name='Sign In With Google' type="button" value='Submit Form' onClick = {signInWithGoogle} isGoogleSignin ={true}>
+                        <CustomButton name='Sign In With Google' type="button" value='Submit Form' onClick = {() => dispatch(googleSignInStart())} isGoogleSignin ={true}>
                             Sign In With Google
                         </CustomButton> 
                     </div>

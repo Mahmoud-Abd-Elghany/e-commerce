@@ -4,7 +4,6 @@ import './shop.style.scss'
 import { Route } from 'react-router'
 import CollectionsOverviewContainer from '../../components/collections-overview/collections-overview.container'
 import CollectionPageContainer from '../collection/collection.container'
-import { fetchDataStart } from '../../redux/shop/shop.saga'
 import { fetchShopDataStart } from '../../redux/shop/shop.actions'
 
 const ShopPage = ({match}) => {

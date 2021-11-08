@@ -15,12 +15,14 @@ initializeApp(Config);
 export const auth = getAuth();
 export const db = getFirestore();
 
-
-export const createUserProfileDocument = async (userAuth, additionalData) => {
-    if(!userAuth) return;
+//Checking and Creating new user in firestore
+export const createUserProfileDocument = async (userAuth, additionalData) =>
+{
+    if(!userAuth) return; //check if there is data in userAuth
     const userRef = doc(db, `users/${userAuth.uid}`);
-    const snapShot = await getDoc(userRef);
-    if(!snapShot.exists()){ //Checking Duplicate before Creating new User
+    const Snapshot = await getDoc(userRef);
+     //Checking Duplicate before Creating new User
+    if(!Snapshot.exists()){
         const {displayName, email} = userAuth;
         const createdAt = new Date();
         try {
@@ -68,16 +70,7 @@ export const convertDocsArrToObj = async (snapShot) => {
     },{}); //Changing Array to Object (Data Normalization)
 }
 
-const provider = new GoogleAuthProvider();
-provider.setCustomParameters({
+export const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({
     'prompt': 'select_account'
   });
-
-export const signInWithGoogle = () =>{ signInWithPopup(auth, provider)
-                                        .catch((error) => {
-                                            // Handle Errors here.
-                                            const errorCode = error.code;
-                                            const errorMessage = error.message;
-                                            console.log(errorMessage);
-                                        })
-                                    }
