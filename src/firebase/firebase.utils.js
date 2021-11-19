@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app"
 import { getFirestore, getDoc, doc, setDoc } from "firebase/firestore"; //for Database
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";  //for Authentication
+import { getAuth, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";  //for Authentication
 
 const Config = {
     apiKey: "AIzaSyCNC2LguzAoqhMdJedFDdfGe3Ic0jPoJN0",
@@ -68,6 +68,15 @@ export const convertDocsArrToObj = async (snapShot) => {
         accu[obj.title.toLowerCase()] = obj;
         return accu
     },{}); //Changing Array to Object (Data Normalization)
+}
+
+export const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(auth, userAuth => {
+        unsubscribe();
+        resolve(userAuth);
+    }, reject)
+})
 }
 
 export const googleProvider = new GoogleAuthProvider();

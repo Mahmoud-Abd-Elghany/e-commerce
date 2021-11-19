@@ -1,6 +1,5 @@
-export const setCurrentUserAction = user => ({
-    type: "SET_CURRENT_USER",
-    payload: user,
+export const checkUserSession = () => ({
+    type: "CHECK_USER_SESSION",
 })
 
 export const googleSignInStart = user => ({
@@ -17,8 +16,20 @@ export const signInSuccess = user => ({
     payload: user
 })
 export const signInFailure = error => ({
-    type: "SIGN_IN_Failure",
+    type: "SIGN_IN_FAILURE",
     payload: error
 })
 
+export const signOutStart = () => ({
+    type: "SIGN_OUT_START",
+})
+
+export const signOutSuccess = () => ({
+    type: "SIGN_OUT_SUCCESS",
+})
+
+export const signOutFailure = (errMsg) => ({
+    type: "SIGN_OUT_FAILURE",
+    payload: errMsg
+})
 

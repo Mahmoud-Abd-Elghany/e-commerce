@@ -5,6 +5,11 @@ const INITIAL_STATE = {
 }
 const cartReducer = (state = INITIAL_STATE, action) =>{
     switch(action.type){
+        case 'CLEAR_CART':
+            return{
+                ...state,
+                cartItems: []
+            }
         case 'TOGGLE_CART':
             return {
                 ...state,
