@@ -33,3 +33,18 @@ export const signOutFailure = (errMsg) => ({
     payload: errMsg
 })
 
+export const signUpStart = (userCredentials) => ({
+    type: "SIGN_UP_START",
+    payload: userCredentials
+})
+
+export const signUpSuccess = () => ({
+    type: "SIGN_UP_SUCCESS"
+})
+
+export const signUpFailure = (errMsg) => ({
+    type: "SIGN_UP_FAILURE",
+    payload: errMsg
+})
+
+

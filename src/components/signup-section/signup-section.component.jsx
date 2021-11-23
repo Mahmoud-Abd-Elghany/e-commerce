@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
+import { useDispatch } from 'react-redux'
 import CustomButton from '../custom-button/custom-button.component'
 import FormInput from '../form-input/form-input.component'
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils'
-import {createUserWithEmailAndPassword } from "firebase/auth";
+import { signUpStart } from '../../redux/user/user.actions';
 import './signup-section.style.scss'
 
 const SignUp = () =>{
@@ -13,19 +13,16 @@ const SignUp = () =>{
         confirmPassword: ''
     })
 
+    const dispatch = useDispatch();
+
     const changeHandler = (e) => {
         setSignUpCredentials({ ...signUpCredentials, [e.target.name]: e.target.value})
     }
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        const {displayName, email, password, confirmPassword} = signUpCredentials;
-        try{
-            const {user} = await createUserWithEmailAndPassword(auth, email, password);
-            createUserProfileDocument(user, {displayName});
-        }
-        catch(err){ console.log(err)}
-          
+        const {password, confirmPassword} = signUpCredentials;
+        dispatch(signUpStart(signUpCredentials));
         if(confirmPassword === password){
 
             setSignUpCredentials({
@@ -36,7 +33,7 @@ const SignUp = () =>{
             })
         }
         else{ 
-            alert('password doesn\'t match');
+            alert("password doesn't match");
             setSignUpCredentials({
                 password: '',
                 confirmPassword: ''
