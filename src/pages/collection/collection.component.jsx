@@ -6,8 +6,6 @@ import './collection.style.scss'
 
 const CollectionPage = ({match}) => {
     const collection = useSelector(state => collectionSelector(match.params.Id)(state));
-    console.log(collection)
-
     return (
         <div className="container">
             <h1 className="title">{collection.title.toUpperCase()}</h1>

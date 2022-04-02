@@ -24,12 +24,14 @@ export const createUserProfileDocument = async (userAuth, additionalData) =>
      //Checking Duplicate before Creating new User
     if(!Snapshot.exists()){
         const {displayName, email} = userAuth;
+        const cart=[];
         const createdAt = new Date();
         try {
             setDoc(userRef, {
                 displayName,
                 email,
                 createdAt,
+                cart,
                 ...additionalData
             })
         }
@@ -73,9 +75,9 @@ export const convertDocsArrToObj = async (snapShot) => {
 export const getCurrentUser = () => {
     return new Promise((resolve, reject) => {
     const unsubscribe = onAuthStateChanged(auth, userAuth => {
-        unsubscribe();
         resolve(userAuth);
     }, reject)
+    unsubscribe();
 })
 }
 

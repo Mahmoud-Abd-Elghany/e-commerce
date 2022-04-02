@@ -11,7 +11,7 @@ const ShopPage = ({match}) => {
     //Updating State Shop Data
     useEffect(() => {
         dispatch(fetchShopDataStart());
-    },[])
+    })
     
     return (
         <div>

@@ -7,7 +7,6 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 function* getSnapshotfromUserAuth(userAuth, additionalInfo){
-    yield console.log(additionalInfo);
     const userRef = yield createUserProfileDocument(userAuth, additionalInfo);
     const userSnapshot = yield call(getDoc, userRef);
     const userData = {id: userSnapshot.id, ...userSnapshot.data()};
