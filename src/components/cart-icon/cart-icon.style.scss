@@ -4,15 +4,16 @@
     width: auto;
     height: 60px;
     padding: 0px 5px 0px 5px;
-    background-color: rgb(255, 255, 255);
     border-radius: 20px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    
     .cart{
         width: 28px;
         height: 28px;
+        fill: white;
     }
     .no{
         position: absolute;
@@ -22,7 +23,6 @@
         left: 36%;
     }
     &:hover{
-        background-color: rgb(238, 238, 238);
         border-radius: 0px;
         transition: ease-out 0.3s;
     }

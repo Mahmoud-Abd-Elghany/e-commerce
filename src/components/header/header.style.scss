@@ -1,66 +1,77 @@
+@use 'src/color' as c;
+
 .header {
   display: flex;
-  flex-direction: row;
-  height: 120px;
+  justify-content: center;
   width: 100%;
-  justify-content: space-between;
-  margin-top: 20px;
+  height: fit-content;
+  align-items: flex-end;
+  position: sticky;
+  margin-left: auto;
+  top: 0%;
+  z-index: 5;
   margin-bottom: 10px;
+  margin-top: 5vh;
+  z-index: 10;
+  transition: 0.2s ease-in all;
+    &.active{
+      transition: 0.2s ease-in all;
+    }
   .header-text-container {
-    width: 50vw;
-    height: 100%;
+    width: 50%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
-    margin-right: 10px;
+    border-right: 0px;
+    margin-left: auto;
+    z-index: 1;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.671);
+    transition: 0.2s ease-in all;
+    &.active{
+      width: 40%;
+      background-color: black;
+      transition: 0.2s ease-in all;
+    }
     .signedIn-container {
       display: flex;
       flex-direction: row;
     }
     .header-text {
-      padding: 20px 20px;
-      background-color: rgb(255, 255, 255);
-      border-radius: 30px;
-      margin: 0 7px;
+      padding: 15px 10px;
       text-decoration: none;
-      color: black;
       cursor: pointer;
       text-transform: uppercase;
       font-size: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-weight: 600;
+      color: white;
+      &::after{
+        content: "";
+        transform-origin: left;
+        margin-top: 1%;
+        height: 2.5px;
+        width: 100%;
+        transform: scaleX(0);
+        z-index: 2;
+      }      
       &:hover {
-        background-color: rgb(238, 238, 238);
-        border-radius: 0px;
-        font-weight: bolder;
-        transition: ease-out 0.2s;
+        transition: ease-in-out 0.2s;
+        color: c.$light-accent;
+        &::after{
+          transform: scaleX(1);
+          background-color: c.$light-accent;
+          transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+        
       }
     }
     .user {
-      color: rgb(0, 131, 218);
       text-transform: none;
-      margin: 0px 0px;
-    }
-  }
-  .logo-container {
-    position: relative;
-    top: 15%;
-    height: 90px;
-    width: 90px;
-    min-width: 90px;
-    padding: 10px 12px;
-    background-color: rgb(252, 252, 252);
-    border-radius: 50px;
-    &:hover {
-      background-color: rgb(245, 245, 245);
-      transition: ease-in 0.2s;
-      border-radius: 0px;
-    }
-    .logo{
-      height: 70px;
-      width: 70px;
-      &:hover {
-        transform: scale(1.1);
-        transition: transform 2s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-      }
     }
   }
 }
+
+

@@ -1,11 +1,11 @@
 .menu-item {
   min-width: 30%;
-  height: 300px;
+  height: 35vh;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 0px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
  
@@ -18,7 +18,7 @@
   }
 
   &.large{
-    height: 430px;
+    height: 50vh;
   }
 
   &:first-child {
@@ -52,17 +52,16 @@
       font-weight: lighter;
       font-size: 16px;
       margin-bottom: auto;
+      color: black;
     }
   }
 
   &:hover{
     cursor: pointer;
-
     & .background-image{
       transform: scale(1.1);
       transition: transform 8s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     }
-
     & .content{
       background-color: rgba(255, 255, 255, 0.9);
     }

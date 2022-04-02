@@ -4,8 +4,6 @@ import './menu-list.style.scss'
 import { useSelector } from 'react-redux'
 
 
-
-
 const MenuList = () => {
     const menuListData= useSelector(state => state.menulist);
     return(

@@ -6,12 +6,12 @@ import CartItem from '../cart-item/cart-item.component'
 import { cartItemsSelector } from '../../redux/cart/cart.selector'
 import { Link } from 'react-router-dom'
 import { toggleCart } from '../../redux/cart/cart.actions'
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 const CartDropdown = () => {
     const dispatch = useDispatch();
     const dispatchToggleCart = () => dispatch(toggleCart());
     const cartItems = useSelector(state => cartItemsSelector(state));
-    console.log("Called dopdown");
     return (
         <div className='cart-dropdown'>
             {
@@ -27,9 +27,9 @@ const CartDropdown = () => {
             }
             
 
-            <Link to="/checkout">
-                <CustomButton className='button' onClick={dispatchToggleCart}>
-                    Go to checkout
+            <Link className='checkout-Btn-container' to="/checkout">
+                <CustomButton sx={{display: "flex", width: "100%"}} onClick={dispatchToggleCart}>
+                    <span style={{marginRight:"auto"}}> Checkout </span><ShoppingCartCheckoutIcon style={{color: "rgb(0, 132, 255)"}}/>
                 </CustomButton>
             </Link>
         </div>

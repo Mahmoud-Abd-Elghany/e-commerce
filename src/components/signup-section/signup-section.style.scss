@@ -1,9 +1,20 @@
 .signup{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    align-items: stretch;
+    justify-content: center;
+    width: 35%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 10px black;
+    padding: 3%;
     height: auto;
-    .button{
-        width: 45%;
+    color: black;
+    margin-top: 1%;
+    .button-section{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
     }
 }

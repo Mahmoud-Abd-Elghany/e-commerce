@@ -5,6 +5,7 @@ import FormInput from '../form-input/form-input.component'
 import { signUpStart } from '../../redux/user/user.actions';
 import './signup-section.style.scss'
 
+
 const SignUp = () =>{
     const [signUpCredentials, setSignUpCredentials] = useState({
         displayName:'',
@@ -44,7 +45,7 @@ const SignUp = () =>{
 
     return (
         <div className = 'signup'>
-            <h3>Don't have an Account?</h3>
+            <h3>Create a new Account</h3>
             <h2>Sign Up</h2>
 
             <form className='signup-form' onSubmit={submitHandler}>
@@ -70,14 +71,14 @@ const SignUp = () =>{
                     required
                 />
                 <FormInput  name='confirmPassword' 
-                    label = 'confirmPassword:'
+                    label = 'Confirm Password:'
                     type='password' 
                     value= {signUpCredentials.confirmPassword}
                     changeHandler= {changeHandler}
                     required
                 />
 
-                <CustomButton className="button" name='Sign In' value='Submit Form' type='submit'>
+                <CustomButton name='Sign In' value='Submit Form' type='submit'>
                     Sign Up
                 </CustomButton>
             </form>

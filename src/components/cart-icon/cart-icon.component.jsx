@@ -8,10 +8,7 @@ import { cartItemsTotalSelector } from '../../redux/cart/cart.selector'
 
 const CartIcon = () => {
     const dispatch = useDispatch();
-
     const cartItemsTotal = useSelector(state => cartItemsTotalSelector(state));
-
-    console.log("Called cartIcon");
     return (
         <div className='cart-container' onClick={() => dispatch(toggleCart())}>
             <div className='no'>{cartItemsTotal}</div>

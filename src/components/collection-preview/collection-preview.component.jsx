@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './collection-preview.style.scss'
 import PreviewItem from '../preview-item/preview-item.component'
 

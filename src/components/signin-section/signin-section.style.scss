@@ -1,10 +1,20 @@
+@use 'src/color' as c;
+
 .signin{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    align-items: stretch;
+    justify-content: center;
+    width: 35%;
+    height: 90%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 10px black;
+    padding: 5%;
     height: auto;
+    color: black;
     .button-section{
         display: flex;
+        align-items: center;
         width: 100%;
         justify-content: space-between;
     }

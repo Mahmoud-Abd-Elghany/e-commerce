@@ -1,32 +1,40 @@
+@use 'src/color' as c;
+
 .collection-preview {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vh;
     width: 100%;
+    height: 100%;
   
     .title {
-      font-size: 28px;
-      margin-bottom: 15px;
-      margin-left: 40px;
-      border-left: 3px solid black ;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
       text-decoration: none;
-      color: black;
-      width: fit-content;
-      padding: 0px 6px;
+      color: white;
+      height: 90%;
       font-weight: bold;
       word-spacing: 2px;
-      background-color: none;
+      margin-right: auto;
+      background-color: rgba(0, 0, 0, 0.897);
+      width: fit-content;
+      padding: 0% 2%;
+      transition: ease-out 0.15s;
       &:hover {
+        padding: 0% 3%;
         transition: ease-out 0.15s;
-        color: rgba(0, 0, 0, 0.521);
       }
     }
-  
     .preview {
+      margin-left: auto;
+      padding: 2% 0%;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       width: 100%;
-      margin: auto;
     }
   }
   

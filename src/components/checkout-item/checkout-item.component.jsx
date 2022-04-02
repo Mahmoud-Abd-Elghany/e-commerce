@@ -2,7 +2,8 @@ import React from 'react'
 import './checkout-item.style.scss'
 import { useDispatch } from 'react-redux'
 import { decQuantity, incQuantity, removeItem } from '../../redux/cart/cart.actions'
-import {ReactComponent as RemoveIcon} from "../cart-item/remove.svg"
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const CheckoutItem = ({item: {name, price, imageUrl, quantity, id}}) => {
     const dispatch = useDispatch();
@@ -24,7 +25,9 @@ const CheckoutItem = ({item: {name, price, imageUrl, quantity, id}}) => {
                 <span>${price}</span>
             </div>
             <div className="element-container">
-                <RemoveIcon className="remove-icon" onClick={dispatchRemoveItem}/>
+            <IconButton aria-label="delete" size="large" onClick={dispatchRemoveItem} sx={{width:"fit-content", height:"fit-content", color: "white"}} className="remove-icon">
+                <DeleteIcon/>
+            </IconButton>
             </div>
         </div>
     )

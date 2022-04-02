@@ -14,7 +14,7 @@ const cssStyle = css`
 const WithSpinner = WrappedComponent => {
     const spinner = ({isLoading, ...otherProps}) => {
         return isLoading?
-            <MoonLoader Loading={isLoading} color={"#000000"} size = {70} css={cssStyle}/>
+            <MoonLoader Loading={isLoading} color={"#FFFFFF"} size = {70} css={cssStyle}/>
             :
             <WrappedComponent {...otherProps}/>
     }
